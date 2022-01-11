@@ -4,11 +4,13 @@
 #include <fstream>
 #include <stdlib.h>
 #include <cmath>
+#include <unistd.h>
    
 //Variables
-    const std::string car[15]={"BMW", "Opel", "Nissan", "Ferrari", "Mitsubishi", "Seat", "Mercedes", "Porsche", "Tesla", "Volkswagen", "Toyota"};
+    const std::string car[10]={"BMW", "Opel", "Nissan", "Ferrari", "Mitsubishi", "Seat", "Mercedes", "Porsche", "Tesla", "Volkswagen"};
     int menu_choice=0, contact_choice=0,report_choice=0;
     char menu_cont;
+    std::string list_choice;
     std::string fname, lname;
 //Functions
 
@@ -134,7 +136,110 @@ void report() //Report Function
 
     } while(report_choice!=4 && report_cont !='n');
 }
-
+void list_cars(){
+    int i,list_choice_num = 0;
+    char list_cont;
+    do{
+    std::cout<<"The available car manufacturers are the following: \n";
+    for(i=0;i<10;i++){
+        std::cout<<car[i]<<std::endl;
+    } 
+    
+    std::cout<<"To list all car models from a specific car manufacturer, please type 1.\nTo go back to the main menu, please press 0.\n";
+    std::cin>> list_choice_num;
+    char list_conf;
+    do{
+    if(list_choice_num==1){
+        std::cout<<"Please type the manufacturers name: \n";
+        std::cin>>list_choice;
+        if(list_choice == car[0]){
+            std::string bmw[5]={"M3","M4","M8","Z4","X5"};
+            for(int i=0;i<5;i++){
+                std::cout<<bmw[i]<<std::endl;         
+    }
+        std::cout<<"Type (r) to go back.\n";
+        std::cin>>list_conf;
+    }
+       else if(list_choice == car[1]){
+            std::string opel[5]={"Corsa","Astra","Agila","Calibra","Manta"};
+            for(int i=0;i<5;i++){
+                std::cout<<opel[i]<<std::endl;         
+    }
+        std::cout<<"Type (r) to go back.\n";
+        std::cin>>list_conf;
+    }
+        else if(list_choice == car[2]){
+            std::string nissan[5]={"Versa","Sentra","Altima","GT-R","LEAF"};
+            for(int i=0;i<5;i++){
+                std::cout<<nissan[i]<<std::endl;         
+    }
+        std::cout<<"Type (r) to go back.\n";
+        std::cin>>list_conf;
+    }
+         else if(list_choice == car[3]){
+            std::string ferrari[5]={"Enzo","Spider","Roma","California","599XX"};
+            for(int i=0;i<5;i++){
+                std::cout<<ferrari[i]<<std::endl;         
+    }
+        std::cout<<"Type (r) to go back.\n";
+        std::cin>>list_conf;
+    }
+        else if(list_choice == car[4]){
+            std::string mitsubishi[5]={"Mirage","Outlander","Outlander Sport","Eclipse Cross","Mirage C4"};
+            for(int i=0;i<5;i++){
+                std::cout<<mitsubishi[i]<<std::endl;         
+    }
+        std::cout<<"Type (r) to go back.\n";
+        std::cin>>list_conf;
+    }
+        else if(list_choice == car[5]){
+            std::string seat[5]={"Ibiza","Arona","Tarraco","Mii","Leon"};
+            for(int i=0;i<5;i++){
+                std::cout<<seat[i]<<std::endl;         
+    }
+        std::cout<<"Type (r) to go back.\n";
+        std::cin>>list_conf;
+    }
+        else if(list_choice == car[6]){
+            std::string mercedes[5]={"Benz GLA Class","Benz SL Class","Benz AMG GT","Benz A Class","Benz B Class"};
+            for(int i=0;i<5;i++){
+                std::cout<<mercedes[i]<<std::endl;         
+    }
+        std::cout<<"Type (r) to go back.\n";
+        std::cin>>list_conf;
+    }
+        else if(list_choice == car[7]){
+            std::string porsche[5]={"Speedster","911","911-Turbo","Spyder","Boxster"};
+            for(int i=0;i<5;i++){
+                std::cout<<porsche[i]<<std::endl;         
+    }
+        std::cout<<"Type (r) to go back.\n";
+        std::cin>>list_conf;
+    }
+        else if(list_choice == car[8]){
+            std::string tesla[5]={"Roadster","Cybertruck","Model 3","Model S","Model Y"};
+            for(int i=0;i<5;i++){
+                std::cout<<tesla[i]<<std::endl;         
+    }
+        std::cout<<"Type (r) to go back.\n";
+        std::cin>>list_conf;
+    }
+        else if(list_choice == car[9]){
+            std::string volkswagen[5]={"Golf","Polo","Passat","Scirroco","Santana"};
+            for(int i=0;i<5;i++){
+                std::cout<<volkswagen[i]<<std::endl;         
+    }
+        std::cout<<"Type (r) to go back.\n";
+        std::cin>>list_conf;
+    }
+        else{
+        std::cout<<"No car manufacturer found.\n\n";
+    }
+    }
+    }while(list_cont!='n' && list_choice_num != 0 && list_conf != 'r');
+    }while(list_cont!='n'&& list_choice_num!=0);
+    
+}
 
 
 //Start of main program
@@ -159,7 +264,7 @@ int main()
     switch (menu_choice)
     {
     case 1:
-
+        list_cars();
         break;
     case 2:
 
@@ -183,6 +288,7 @@ int main()
         break;
     default:
         std::cout<<"Please choose of the correct options.\n";
+        sleep(3);
         break;
     }
     } while(menu_choice!=7 && menu_cont !='n');    
