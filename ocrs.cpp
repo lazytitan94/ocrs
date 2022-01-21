@@ -18,7 +18,9 @@
     std::string porsche[5]={"Speedster","911","911-Turbo","Spyder","Boxster"};
     std::string tesla[5]={"Roadster","Cybertruck","Model-3","Model-S","Model-Y"};
     std::string volkswagen[5]={"Golf","Polo","Passat","Scirroco","Santana"};   
-    
+    char list_conf;
+    char return_car_cont;
+    int total_price;
     int menu_choice=0, contact_choice=0,report_choice=0, return_car_cont_s;
     int total_days=0;
     char menu_cont;
@@ -42,10 +44,10 @@ void main_menu() //Main menu function
 void contact(){ //Contact Function
 
     char contact_cont;
-    do
-    {
+    do{
+    system("cls || clear");
     std::cout<<"Please choose how you would like to contact us:\n";
-    std::cout<<"Press 1 to contact us via E-Mail at lazy_titan94@protonmail.com\n";
+    std::cout<<"Press 1 to contact us via E-Mail.\n";
     std::cout<<"Press 2 to contact us via telephone.\n";
     std::cout<<"Press 3 to contact us via mail.\n";
     std::cout<<"Press 4 to return to the main menu.\n";
@@ -53,24 +55,26 @@ void contact(){ //Contact Function
         switch(contact_choice)
         {
             case 1:
-            system("firefox mailto::lazy_titan94@protonmail.com");
-            std::cout<<"Do you want to continue?\n (y) for yes (n) for no\n";
+            system("firefox mailto::ocrs@ocrs.com");
+            std::cout<<"Do you want to return to the Contact menu?\n (y) for yes (n) for no\n";
             std::cin>>contact_cont;
             break;
 
             case 2:
             system("firefox tel:55545754484");
-            std::cout<<"Do you want to continue?\n (y) for yes (n) for no\n";
+            std::cout<<"Do you want to return to the Contact menu?\n (y) for yes (n) for no\n";
             std::cin>>contact_cont;
             break;
 
             case 3:
             std::cout<<"You can send your mail at the following address: \n54124, Bleeker Streek 02, New York, USA.\n";
-            std::cout<<"Do you want to continue?\n (y) for yes (n) for no\n";
+            std::cout<<"Do you want to return to the Contact menu?\n (y) for yes (n) for no\n";
             std::cin>>contact_cont;
             break;
 
             case 4:
+            std::cout<<"Returning to main menu.\n";
+            sleep(2);
             break;
 
             default:
@@ -83,9 +87,9 @@ void contact(){ //Contact Function
 void report(){ //Report Function
     char report_cont,report_confirm;
     std::string user_report1,user_report2,user_report3;
-    do
-    {
-        report_choice = 0;
+    do{
+    system("cls || clear");
+    report_choice = 0;
     std::cout<<"Thank you for reporting to us.\n";
     std::cout<<"To report a damaged car, please press 1.\nTo report a stolen car, please press 2.\nTo report anything else, please press 3.\nTo return to the main menu, please press 4.\n";
     std::cin>>report_choice;
@@ -149,107 +153,125 @@ void report(){ //Report Function
     } while(report_choice!=4 && report_cont !='n');
 }
 void list_cars(){ //List Cars Function
-    int i,list_choice_num = 0;
+    std::string list_choice_num;
+    std::string list_choice_quit;
     char list_cont;
     do{
-    std::cout<<"The available car manufacturers are the following: \n";
-    for(i=0;i<10;i++){
+    system("cls || clear");
+    std::cout<<"The available car manufacturers are the following: \n\n";
+    for(int i=0;i<10;i++){
         std::cout<<car[i]<<std::endl;
+        
     } 
-    
+    std::cout<<"\n\n";
     std::cout<<"To list all car models from a specific car manufacturer, please type 1.\nTo go back to the main menu, please press 0.\n";
     std::cin>> list_choice_num;
-    char list_conf;
     do{
-    if(list_choice_num==1){
+    if(list_choice_num == "1"){
         std::cout<<"Please type the manufacturers name: \n";
         std::cin>>list_choice;
         if(list_choice == car[0]){
             std::string bmw[5]={"M3","M4","M8","Z4","X5"};
             for(int i=0;i<5;i++){
-                std::cout<<bmw[i]<<std::endl;         
-    }
+                std::cout<<bmw[i]<<std::endl;  
+                      
+            }
         std::cout<<"Type (r) to go back.\n";
         std::cin>>list_conf;
-    }
+        
+        }
        else if(list_choice == car[1]){
             std::string opel[5]={"Corsa","Astra","Agila","Calibra","Manta"};
             for(int i=0;i<5;i++){
                 std::cout<<opel[i]<<std::endl;         
-    }
+            }
         std::cout<<"Type (r) to go back.\n";
         std::cin>>list_conf;
-    }
+        }
         else if(list_choice == car[2]){
             std::string nissan[5]={"Versa","Sentra","Altima","GT-R","LEAF"};
             for(int i=0;i<5;i++){
                 std::cout<<nissan[i]<<std::endl;         
-    }
+            }
         std::cout<<"Type (r) to go back.\n";
         std::cin>>list_conf;
-    }
+        }
          else if(list_choice == car[3]){
             std::string ferrari[5]={"Enzo","Spider","Roma","California","599XX"};
             for(int i=0;i<5;i++){
                 std::cout<<ferrari[i]<<std::endl;         
-    }
+            }
         std::cout<<"Type (r) to go back.\n";
         std::cin>>list_conf;
-    }
+        }
         else if(list_choice == car[4]){
             std::string mitsubishi[5]={"Mirage","Outlander","Outlander-Sport","Eclipse-Cross","Mirage-C4"};
             for(int i=0;i<5;i++){
                 std::cout<<mitsubishi[i]<<std::endl;         
-    }
+            }
         std::cout<<"Type (r) to go back.\n";
         std::cin>>list_conf;
-    }
+        }
         else if(list_choice == car[5]){
             std::string seat[5]={"Ibiza","Arona","Tarraco","Mii","Leon"};
             for(int i=0;i<5;i++){
                 std::cout<<seat[i]<<std::endl;         
-    }
+            }
         std::cout<<"Type (r) to go back.\n";
         std::cin>>list_conf;
-    }
+        }
         else if(list_choice == car[6]){
             std::string mercedes[5]={"Benz-GLA-Class","Benz-SL-Class","Benz-AMG-GT","Benz-A-Class","Benz-B-Class"};
             for(int i=0;i<5;i++){
                 std::cout<<mercedes[i]<<std::endl;         
-    }
+            }
         std::cout<<"Type (r) to go back.\n";
         std::cin>>list_conf;
-    }
+        }
         else if(list_choice == car[7]){
             std::string porsche[5]={"Speedster","911","911-Turbo","Spyder","Boxster"};
             for(int i=0;i<5;i++){
                 std::cout<<porsche[i]<<std::endl;         
-    }
+            }
         std::cout<<"Type (r) to go back.\n";
         std::cin>>list_conf;
-    }
+        }
         else if(list_choice == car[8]){
             std::string tesla[5]={"Roadster","Cybertruck","Model-3","Model-S","Model-Y"};
             for(int i=0;i<5;i++){
                 std::cout<<tesla[i]<<std::endl;         
-    }
+            }
         std::cout<<"Type (r) to go back.\n";
         std::cin>>list_conf;
-    }
+        }
         else if(list_choice == car[9]){
             std::string volkswagen[5]={"Golf","Polo","Passat","Scirroco","Santana"};
             for(int i=0;i<5;i++){
                 std::cout<<volkswagen[i]<<std::endl;         
-    }
+            }
         std::cout<<"Type (r) to go back.\n";
         std::cin>>list_conf;
-    }
+        }
         else{
         std::cout<<"No car manufacturer found.\n\n";
+        }
+        
     }
-    }
-    }while(list_cont!='n' && list_choice_num != 0 && list_conf != 'r');
-    }while(list_cont!='n'&& list_choice_num!=0);
+    
+    else if(list_choice_num !="0"){
+        system("cls || clear");
+        std::cout<<"Wrong input. Please try again.\n";
+        break;
+        }
+     
+    else{
+        std::cout<<"Going back to main menu\n";
+        sleep(2);
+        break;
+    }    
+        }while(list_conf!='r');
+       
+    }while(list_cont!='n' && list_choice_num!="0" && list_conf != 'r');
     
 }
 void reservation(){ //Reservation Fucntion
@@ -265,6 +287,7 @@ void reservation(){ //Reservation Fucntion
     }
     else{
     do{
+    
     std::cout<<"Please type in how many days you want to rent the car: \n";
     std::cin>>total_days;
     std::cout<<"Please select a car manufacturer from the list in option number 1. or type (r) to return: \n";
@@ -1099,12 +1122,21 @@ void reservation(){ //Reservation Fucntion
     
     }
 }
-void return_car(){
-char return_car_cont;
-int total_price;
+void return_car(){ //Return Car Function
+
 
 //int bmw_m3 = 0,bmw_m4 = 0,bmw_m8 = 0,bmw_z4 = 0,bmw_x5 = 0;
 int bmw_p[5] = {100,200,300,400,500};
+int opel_p[5] = {100,200,300,400,500};
+int nissan_p[5] = {100,200,300,400,500};
+int ferrari_p[5] = {100,200,300,400,500};
+int mitsubishi_p[5] = {100,200,300,400,500};
+int seat_p[5] = {100,200,300,400,500};
+int mercedes_p[5] = {100,200,300,400,500};
+int porsche_p[5] = {100,200,300,400,500};
+int tesla_p[5] = {100,200,300,400,500};
+int volkswagen_p[5] = {100,200,300,400,500};
+
     do{
         if(is_rented==true){
             if(reservation_choice == car[0]){
@@ -1119,7 +1151,7 @@ int bmw_p[5] = {100,200,300,400,500};
                             std::cout<<"Please wait.\n";
                             sleep(5);
                             std::cout<<"Car successfully returned.\n";
-                            std::cout<<"Press 1 to return to the main menu, or 2 to exit OCRS completely.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
                             std::cin>>return_car_cont_s;
                             }
         
@@ -1140,7 +1172,7 @@ int bmw_p[5] = {100,200,300,400,500};
                             std::cout<<"Please wait.\n";
                             sleep(5);
                             std::cout<<"Car successfully returned.\n";
-                            std::cout<<"Press 1 to return to the main menu, or 2 to exit OCRS completely.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
                             std::cin>>return_car_cont_s;
                             }
         
@@ -1161,7 +1193,7 @@ int bmw_p[5] = {100,200,300,400,500};
                             std::cout<<"Please wait.\n";
                             sleep(5);
                             std::cout<<"Car successfully returned.\n";
-                            std::cout<<"Press 1 to return to the main menu, or 2 to exit OCRS completely.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
                             std::cin>>return_car_cont_s;
                             }
         
@@ -1182,7 +1214,7 @@ int bmw_p[5] = {100,200,300,400,500};
                             std::cout<<"Please wait.\n";
                             sleep(5);
                             std::cout<<"Car successfully returned.\n";
-                            std::cout<<"Press 1 to return to the main menu, or 2 to exit OCRS completely.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
                             std::cin>>return_car_cont_s;
                             }
         
@@ -1203,7 +1235,31 @@ int bmw_p[5] = {100,200,300,400,500};
                             std::cout<<"Please wait.\n";
                             sleep(5);
                             std::cout<<"Car successfully returned.\n";
-                            std::cout<<"Press 1 to return to the main menu, or 2 to exit OCRS completely.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        break;
+                        }
+                    
+                }
+            }
+            else if(reservation_choice == car[1]){
+                if(reservation_model_choice == opel[0]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * opel_p[0];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
                             std::cin>>return_car_cont_s;
                             }
         
@@ -1213,7 +1269,956 @@ int bmw_p[5] = {100,200,300,400,500};
                         }
                     
                 }
-            }   
+                else if(reservation_model_choice == opel[1]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * opel_p[1];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == opel[2]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * opel_p[2];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == opel[3]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * opel_p[3];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == opel[4]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * opel_p[4];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        break;
+                        }
+                    
+                }
+            }
+            else if(reservation_choice == car[2]){
+                if(reservation_model_choice == nissan[0]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * nissan_p[0];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == nissan[1]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * nissan_p[1];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == nissan[2]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * nissan_p[2];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == nissan[3]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * nissan_p[3];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == nissan[4]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * nissan_p[4];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        break;
+                        }
+                    
+                }
+            }
+            else if(reservation_choice == car[3]){
+                if(reservation_model_choice == ferrari[0]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * ferrari_p[0];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == ferrari[1]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * ferrari_p[1];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == ferrari[2]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * ferrari_p[2];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == ferrari[3]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * ferrari_p[3];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == ferrari[4]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * ferrari_p[4];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        break;
+                        }
+                    
+                }
+            }
+            else if(reservation_choice == car[4]){
+                if(reservation_model_choice == mitsubishi[0]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * mitsubishi_p[0];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == mitsubishi[1]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * mitsubishi_p[1];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == mitsubishi[2]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * mitsubishi_p[2];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == mitsubishi[3]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * mitsubishi_p[3];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == mitsubishi[4]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * mitsubishi_p[4];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        break;
+                        }
+                    
+                }
+            }
+            else if(reservation_choice == car[5]){
+                if(reservation_model_choice == seat[0]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * seat_p[0];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == seat[1]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * seat_p[1];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == seat[2]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * seat_p[2];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == seat[3]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * seat_p[3];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == seat[4]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * seat_p[4];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        break;
+                        }
+                    
+                }
+            }
+            else if(reservation_choice == car[6]){
+                if(reservation_model_choice == mercedes[0]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * mercedes_p[0];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == mercedes[1]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * mercedes_p[1];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == mercedes[2]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * mercedes_p[2];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == mercedes[3]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * mercedes_p[3];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == mercedes[4]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * mercedes_p[4];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        break;
+                        }
+                    
+                }
+            }
+            else if(reservation_choice == car[7]){
+                if(reservation_model_choice == porsche[0]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * porsche_p[0];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == porsche[1]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * porsche_p[1];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == porsche[2]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * porsche_p[2];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == porsche[3]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * porsche_p[3];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == porsche[4]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * porsche_p[4];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        break;
+                        }
+                    
+                }
+            }
+            else if(reservation_choice == car[8]){
+                if(reservation_model_choice == tesla[0]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * tesla_p[0];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == tesla[1]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * tesla_p[1];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == tesla[2]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * tesla_p[2];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == tesla[3]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * tesla_p[3];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == tesla[4]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * tesla_p[4];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        break;
+                        }
+                    
+                }
+            }
+            else if(reservation_choice == car[9]){
+                if(reservation_model_choice == volkswagen[0]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * volkswagen_p[0];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == volkswagen[1]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * volkswagen_p[1];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == volkswagen[2]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * volkswagen_p[2];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == volkswagen[3]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * volkswagen_p[3];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        }
+                    
+                }
+                else if(reservation_model_choice == volkswagen[4]){
+                    std::cout<<"You rented the "<<reservation_choice<< " "<<reservation_model_choice<<" "<<"for "<<total_days<<" days.\n";
+                    total_price = total_days * volkswagen_p[4];
+                    std::cout<<"The total price for the car is: $"<<total_price<<std::endl;
+                    std::cout<<"Do you really want to return the "<<reservation_choice<<" "<<reservation_model_choice<<"?"<< " (y) for yes or (n) for no."<<std::endl;
+                    std::cin>>return_car_cont;
+                        if(return_car_cont == 'y'){
+                            is_rented = false;
+                            std::cout<<"Please wait.\n";
+                            sleep(5);
+                            std::cout<<"Car successfully returned.\n";
+                            std::cout<<"Press 1 to return to the main menu.\n";
+                            std::cin>>return_car_cont_s;
+                            }
+        
+                        else{
+                        std::cout<<"Going back to main menu."<<std::endl;
+                        sleep(3);
+                        break;
+                        }
+                    
+                }
+            }
         }
         else{
             std::cout<<"You have not rented a car yet.\n";
@@ -1222,45 +2227,55 @@ int bmw_p[5] = {100,200,300,400,500};
             std::system("clear || cls");
             break;
         }
-    }while(return_car_cont != 'n');
+    }while(return_car_cont != 'n' && return_car_cont_s != 1);
 }
-void prices(){
+void prices(){ // Check Car Prices Function
     std::string prices_choice;
     int prices_cont =0; 
     while(prices_cont!=1){
 
         std::cout<<"Please type the car manufacturer\'s name to list the model prices: \n";
         std::cin>>prices_choice;
-        std::cout<<"The current prices are the following: \n\n\n";
+        
 
     if(prices_choice == car[0]){
+        std::cout<<"The current prices are the following: \n\n\n";
         std::cout<<std::setw(10)<<"BMW: M3 = $100, "<<std::setw(5)<<"M4 = $200, "<<std::setw(5)<<"M8 = $300, "<<std::setw(5)<<"Z4 = $400, "<<std::setw(5)<<"X5 = $500.\n";
     }
     else if (prices_choice == car[1]){
+        std::cout<<"The current prices are the following: \n\n\n";
         std::cout<<std::setw(10)<<"Opel: Corsa = $100, "<<std::setw(5)<<"Astra = $200, "<<std::setw(5)<<"Agila = $300, "<<std::setw(5)<<"Calibra = $400, "<<std::setw(5)<<"Manta = $500.\n";
     }
     else if(prices_choice== car[2]){
+        std::cout<<"The current prices are the following: \n\n\n";
         std::cout<<std::setw(10)<<"Nissan: Versa = $100, "<<std::setw(5)<<"Sentra = $200, "<<std::setw(5)<<"Altima = $300, "<<std::setw(5)<<"GT-R = $400, "<<std::setw(5)<<"LEAF = $500.\n";
     }
     else if(prices_choice== car[3]){
+        std::cout<<"The current prices are the following: \n\n\n";
         std::cout<<std::setw(5)<<"Ferrari: Enzo = $100, "<<std::setw(5)<<"Spider = $200, "<<std::setw(5)<<"Roma = $300, "<<std::setw(5)<<"California = $400, "<<std::setw(5)<<"599XX = $500.\n";
     }
     else if(prices_choice== car[4]){
+        std::cout<<"The current prices are the following: \n\n\n";
         std::cout<<std::setw(5)<<"Mitsubishi: Mirage = $100, "<<std::setw(5)<<"Outlander = $200, "<<std::setw(5)<<"Outlander-Sport = $300, "<<std::setw(5)<<"Eclipse-Cross = $400, "<<std::setw(5)<<"Mirage-C4 = $500.\n";
     }
     else if(prices_choice== car[5]){
+        std::cout<<"The current prices are the following: \n\n\n";
         std::cout<<std::setw(5)<<"Seat: Ibiza = $100, "<<std::setw(5)<<"Arona = $200, "<<std::setw(5)<<"Tarraco = $300, "<<std::setw(5)<<"Mii = $400, "<<std::setw(5)<<"Leon = $500.\n";
     }
     else if(prices_choice== car[6]){
+        std::cout<<"The current prices are the following: \n\n\n";
         std::cout<<std::setw(5)<<"Mercedes: Benz-GLA-Class = $100, "<<std::setw(5)<<"Benz-SL-Class = $200, "<<std::setw(5)<<"Benz-AMG-GT = $300, "<<std::setw(5)<<"Benz-A-Class = $400, "<<std::setw(5)<<"Benz-B-Class = $500.\n";
     }
     else if(prices_choice== car[7]){
+        std::cout<<"The current prices are the following: \n\n\n";
         std::cout<<std::setw(5)<<"Porsche: Speedster = $100, "<<std::setw(5)<<"911 = $200, "<<std::setw(5)<<"911-Turbo = $300, "<<std::setw(5)<<"Spyder = $400, "<<std::setw(5)<<"Boxster = $500.\n";
     }
     else if(prices_choice== car[8]){
+        std::cout<<"The current prices are the following: \n\n\n";
         std::cout<<std::setw(5)<<"Tesla: Roadster = $100, "<<std::setw(5)<<"Cybertruck = $200, "<<std::setw(5)<<"Model-3 = $300, "<<std::setw(5)<<"Model-S = $400, "<<std::setw(5)<<"Model-Y = $500.\n";
     }
     else if(prices_choice== car[9]){
+        std::cout<<"The current prices are the following: \n\n\n";
         std::cout<<std::setw(5)<<"Volkswagen: Golf = $100, "<<std::setw(5)<<"Polo = $200, "<<std::setw(5)<<"Passat = $300, "<<std::setw(5)<<"Scirroco = $400, "<<std::setw(5)<<"Santana = $500.\n";
     }
     else{
