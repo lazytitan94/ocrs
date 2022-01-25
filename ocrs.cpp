@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <cmath>
 #include <unistd.h>
+#include <string>
    
 //Variables
     const std::string car[10]={"BMW", "Opel", "Nissan", "Ferrari", "Mitsubishi", "Seat", "Mercedes", "Porsche", "Tesla", "Volkswagen"};
@@ -21,13 +22,15 @@
     char list_conf;
     char return_car_cont;
     int total_price;
-    int menu_choice=0, contact_choice=0,report_choice=0, return_car_cont_s;
-    int total_days=0;
+    int menu_choice;
+    int contact_choice=0,report_choice=0, return_car_cont_s;
+    int total_days = 0;
     char menu_cont;
     std::string reservation_choice, reservation_model_choice;
     std::string list_choice;
     std::string fname, lname;
     bool is_rented;
+    
 //Functions
 
 void main_menu() //Main menu function
@@ -265,7 +268,7 @@ void list_cars(){ //List Cars Function
         }
      
     else{
-        std::cout<<"Going back to main menu\n";
+        std::cout<<"Going back to main menu.\n";
         sleep(2);
         break;
     }    
@@ -290,6 +293,12 @@ void reservation(){ //Reservation Fucntion
     
     std::cout<<"Please type in how many days you want to rent the car: \n";
     std::cin>>total_days;
+    while (!total_days){
+        std::cout<<"Please enter a number!\n";
+        std::cin.clear();
+        std::cin.ignore(256,'\n');
+        std::cin>>total_days;
+    }
     std::cout<<"Please select a car manufacturer from the list in option number 1. or type (r) to return: \n";
     std::cin >> reservation_choice;
     if(reservation_choice == car[0]){
@@ -369,6 +378,7 @@ void reservation(){ //Reservation Fucntion
         else{
             std::cout<<"The model you have entered is ivalid.\n";
             break;
+
         }
         } while(reservation_confirm !=0 && is_rented == false);
         std::cout << "Type (b) to go back to the main menu.\n";
@@ -1116,8 +1126,15 @@ void reservation(){ //Reservation Fucntion
         std::cout<<"Going back to main menu.\n";
         sleep(2);
         std::system("clear || cls");
+        break;
     }
-    
+    else{
+        std::cout<<"No such car manufacturer found.\n\nPlease use the option number 1. to list all car manufacturers.\n";
+        std::cout<<"Going back to main menu.\n";
+        sleep(3);
+        std::system("clear || cls");
+        break;
+    }
  }while (reservation_cont != 'b' && reservation_choice != "r" && is_rented == false);
     
     }
@@ -2302,14 +2319,15 @@ int main(){
 
     std::cout<<"Please type your name: \n\n";
     std::cin>>fname;
-    do
-    {
+    do{
     std::cout<<"Welcome " << fname << ".\n" << std::endl;
     std::cout<<"Please choose one of the following options. \n";
-
+    
     main_menu();
 
     std::cin>>menu_choice;
+    
+        
     switch (menu_choice)
     {
     case 1:
@@ -2333,14 +2351,20 @@ int main(){
     case 6:
         prices();
         break;
+
     case 7:
         std::cout<<"Thank you for using OCRS!\n";
         std::cout<<"\nWe hope to see you again!\n";
         break;
+
     default:
-        std::cout<<"Please choose of the correct options.\n";
-        sleep(3);
-        break;
+        std::cout<<"Please choose one of the correct options!\n";
+        return 0;
+        
+        
     }
-    } while(menu_choice!=7 && menu_cont !='n' && return_car_cont_s !=2);    
+    
+        
+     }while(menu_choice!=7 && menu_cont !='n' && return_car_cont_s !=2);    
+    
 }
