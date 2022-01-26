@@ -6,7 +6,7 @@
 #include <cmath>
 #include <unistd.h>
 #include <string>
-   
+
 //Variables
     const std::string car[10]={"BMW", "Opel", "Nissan", "Ferrari", "Mitsubishi", "Seat", "Mercedes", "Porsche", "Tesla", "Volkswagen"};
     std::string bmw[5]={"M3","M4","M8","Z4","X5"};
@@ -22,7 +22,7 @@
     char list_conf;
     char return_car_cont;
     int total_price;
-    int menu_choice;
+    char menu_choice;
     int contact_choice=0,report_choice=0, return_car_cont_s;
     int total_days = 0;
     char menu_cont;
@@ -30,6 +30,8 @@
     std::string list_choice;
     std::string fname, lname;
     bool is_rented;
+
+      
     
 //Functions
 
@@ -2240,7 +2242,7 @@ int volkswagen_p[5] = {100,200,300,400,500};
         else{
             std::cout<<"You have not rented a car yet.\n";
             std::cout<<"Please use the option number 2. to rent an available car.\n";
-            sleep(2);
+            sleep(4);
             std::system("clear || cls");
             break;
         }
@@ -2256,43 +2258,43 @@ void prices(){ // Check Car Prices Function
         
 
     if(prices_choice == car[0]){
-        std::cout<<"The current prices are the following: \n\n\n";
+        std::cout<<"The current prices are the following: (per day)\n\n\n";
         std::cout<<std::setw(10)<<"BMW: M3 = $100, "<<std::setw(5)<<"M4 = $200, "<<std::setw(5)<<"M8 = $300, "<<std::setw(5)<<"Z4 = $400, "<<std::setw(5)<<"X5 = $500.\n";
     }
     else if (prices_choice == car[1]){
-        std::cout<<"The current prices are the following: \n\n\n";
+        std::cout<<"The current prices are the following: (per day)\n\n\n";
         std::cout<<std::setw(10)<<"Opel: Corsa = $100, "<<std::setw(5)<<"Astra = $200, "<<std::setw(5)<<"Agila = $300, "<<std::setw(5)<<"Calibra = $400, "<<std::setw(5)<<"Manta = $500.\n";
     }
     else if(prices_choice== car[2]){
-        std::cout<<"The current prices are the following: \n\n\n";
+        std::cout<<"The current prices are the following: (per day)\n\n\n";
         std::cout<<std::setw(10)<<"Nissan: Versa = $100, "<<std::setw(5)<<"Sentra = $200, "<<std::setw(5)<<"Altima = $300, "<<std::setw(5)<<"GT-R = $400, "<<std::setw(5)<<"LEAF = $500.\n";
     }
     else if(prices_choice== car[3]){
-        std::cout<<"The current prices are the following: \n\n\n";
+        std::cout<<"The current prices are the following: (per day)\n\n\n";
         std::cout<<std::setw(5)<<"Ferrari: Enzo = $100, "<<std::setw(5)<<"Spider = $200, "<<std::setw(5)<<"Roma = $300, "<<std::setw(5)<<"California = $400, "<<std::setw(5)<<"599XX = $500.\n";
     }
     else if(prices_choice== car[4]){
-        std::cout<<"The current prices are the following: \n\n\n";
+        std::cout<<"The current prices are the following: (per day)\n\n\n";
         std::cout<<std::setw(5)<<"Mitsubishi: Mirage = $100, "<<std::setw(5)<<"Outlander = $200, "<<std::setw(5)<<"Outlander-Sport = $300, "<<std::setw(5)<<"Eclipse-Cross = $400, "<<std::setw(5)<<"Mirage-C4 = $500.\n";
     }
     else if(prices_choice== car[5]){
-        std::cout<<"The current prices are the following: \n\n\n";
+        std::cout<<"The current prices are the following: (per day)\n\n\n";
         std::cout<<std::setw(5)<<"Seat: Ibiza = $100, "<<std::setw(5)<<"Arona = $200, "<<std::setw(5)<<"Tarraco = $300, "<<std::setw(5)<<"Mii = $400, "<<std::setw(5)<<"Leon = $500.\n";
     }
     else if(prices_choice== car[6]){
-        std::cout<<"The current prices are the following: \n\n\n";
+        std::cout<<"The current prices are the following: (per day)\n\n\n";
         std::cout<<std::setw(5)<<"Mercedes: Benz-GLA-Class = $100, "<<std::setw(5)<<"Benz-SL-Class = $200, "<<std::setw(5)<<"Benz-AMG-GT = $300, "<<std::setw(5)<<"Benz-A-Class = $400, "<<std::setw(5)<<"Benz-B-Class = $500.\n";
     }
     else if(prices_choice== car[7]){
-        std::cout<<"The current prices are the following: \n\n\n";
+        std::cout<<"The current prices are the following: (per day)\n\n\n";
         std::cout<<std::setw(5)<<"Porsche: Speedster = $100, "<<std::setw(5)<<"911 = $200, "<<std::setw(5)<<"911-Turbo = $300, "<<std::setw(5)<<"Spyder = $400, "<<std::setw(5)<<"Boxster = $500.\n";
     }
     else if(prices_choice== car[8]){
-        std::cout<<"The current prices are the following: \n\n\n";
+        std::cout<<"The current prices are the following: (per day)\n\n\n";
         std::cout<<std::setw(5)<<"Tesla: Roadster = $100, "<<std::setw(5)<<"Cybertruck = $200, "<<std::setw(5)<<"Model-3 = $300, "<<std::setw(5)<<"Model-S = $400, "<<std::setw(5)<<"Model-Y = $500.\n";
     }
     else if(prices_choice== car[9]){
-        std::cout<<"The current prices are the following: \n\n\n";
+        std::cout<<"The current prices are the following: (per day)\n\n\n";
         std::cout<<std::setw(5)<<"Volkswagen: Golf = $100, "<<std::setw(5)<<"Polo = $200, "<<std::setw(5)<<"Passat = $300, "<<std::setw(5)<<"Scirroco = $400, "<<std::setw(5)<<"Santana = $500.\n";
     }
     else{
@@ -2330,36 +2332,37 @@ int main(){
         
     switch (menu_choice)
     {
-    case 1:
+    case '1':
         list_cars();
         break;
-    case 2:
+    case '2':
         reservation();
         break;
 
-    case 3:
+    case '3':
         return_car();
         break;
-    case 4:
+    case '4':
         report();
         break;
     
-    case 5:
+    case '5':
         contact();
         break;
     
-    case 6:
+    case '6':
         prices();
         break;
 
-    case 7:
+    case '7':
         std::cout<<"Thank you for using OCRS!\n";
         std::cout<<"\nWe hope to see you again!\n";
         break;
 
     default:
         std::cout<<"Please choose one of the correct options!\n";
-        return 0;
+        system("cls || clear");
+        break;
         
         
     }
