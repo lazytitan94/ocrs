@@ -28,7 +28,7 @@
     char menu_cont;
     std::string reservation_choice, reservation_model_choice;
     std::string list_choice;
-    std::string fname, lname;
+    std::string fname;
     bool is_rented;
 
       
@@ -2368,6 +2368,6 @@ int main(){
     }
     
         
-     }while(menu_choice!=7 && menu_cont !='n' && return_car_cont_s !=2);    
+     }while(menu_choice!='7' && menu_cont !='n' && return_car_cont_s !=2);    
     
 }
